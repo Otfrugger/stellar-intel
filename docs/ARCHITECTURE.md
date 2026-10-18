@@ -35,7 +35,7 @@ Stellar Intel is three planes sharing one vocabulary (the intent):
 
 - **Control plane** — the Next.js app (web UI + API routes) and the MCP server.
   Both consume the same router and oracle primitives.
-- **Execution plane** — the anchors (moneygram, cowrie, anclap, ngnc, ntokens, zeam) reached
+- **Execution plane** — the 13 registered anchors (listed in `constants/anchors.ts`) reached
   over SEP-10/24/38, and the Stellar ledger itself for payment submission.
 - **Observation plane** — the Soroban reputation oracle on testnet (mainnet gated — see docs/MAINNET_LAUNCH.md), fed by a
   publisher worker; read permissionlessly by any third party.
@@ -55,7 +55,7 @@ flowchart LR
   end
 
   subgraph Execution["Execution plane"]
-    Anchors["Anchors\n(6 registered)"]
+    Anchors["Anchors\n(13 registered)"]
     Horizon["Stellar Horizon\nmainnet"]
   end
 
@@ -586,7 +586,7 @@ stellar-intel/
 │   ├── analytics.ts               # ✅ funnel event tracking + PII redaction
 │   ├── utils.ts                   # ✅ computeTotalReceived, format helpers
 │   └── stellar/
-│       ├── anchors.ts             # ✅ registry (6 registered)
+│       ├── anchors.ts             # ✅ registry (13 registered)
 │       ├── sep1.ts                # ✅ stellar.toml resolver
 │       ├── sep10.ts               # ✅ challenge → sign → JWT
 │       ├── sep24.ts               # ✅ /fee, /interactive, /transaction
